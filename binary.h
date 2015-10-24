@@ -21,6 +21,7 @@ public:
   Node* getRightChild();
 
   int getValue();
+  int setValue(int);
 };
 
 #endif

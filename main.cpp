@@ -21,10 +21,59 @@
 int main(int argc, char const *argv[])
 {
   std::cout << "Hello World" << std::endl;
-  Node root(0);
+  Node *root = new Node(0);
   std::cout << root.getValue() << std::endl;
   root.setLeftChild(new Node(1));
   std::cout << root.getLeftChild()->getParent()->getValue() << std::endl;
 
   return 0;
+}
+
+Node* deleteNode(Node* root, int data)
+{
+	if (root == NULL)
+	{
+		std::cout << "debug: there was no child found..." << std::endl;
+		return root;
+	}
+
+	else if (data < root->getValue())
+	{
+		root->setLeftChild(deleteNode(root->getLeftChild(), data)); 
+	}
+
+	else if (data > root->getValue())
+	{
+		root->setRightChild(deleteNode(root->getRightChild(), data)); 
+	}
+
+	else
+	{
+		if (root->getLeftChild() == NULL && root->getRightChild() == NULL)
+		{
+			delete root;
+			root = NULL;
+		} 
+
+		else if (root->getLeftChild() == NULL)
+		{
+			Node *temp = root;
+			root = root->getRightChild();
+			delete temp;
+		}
+
+		else if (root->getRightChild() == NULL)
+		{
+			Node *temp = root;
+			root = root->getLeftChild();
+			delete temp;
+		}
+
+		else
+		{
+			Node *temp = findMin(root->getRightChild());
+			root->getValue()
+		}
+	}
+	return root;
 }
