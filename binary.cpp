@@ -66,13 +66,13 @@ Node* deleteNode_A(Node* root, int data)
   else if (data < root->getValue())
   {
     std::cout << "debug: setting left child" << std::endl;
-    root->setLeftChild(deleteNode_A(root->getLeftChild(), data)); 
+    root->setLeftChild(deleteNode_A(root->getLeftChild(), data));
   }
 
   else if (data > root->getValue())
   {
     std::cout << "debug: setting right child" << std::endl;
-    root->setRightChild(deleteNode_A(root->getRightChild(), data)); 
+    root->setRightChild(deleteNode_A(root->getRightChild(), data));
   }
 
   else
@@ -82,7 +82,7 @@ Node* deleteNode_A(Node* root, int data)
     {
       delete root;
       root = NULL;
-    } 
+    }
 
     else if (root->getLeftChild() == NULL)
     {
@@ -128,7 +128,7 @@ int insertNode(Node* child, Node* parent)
     {
       parent->setRightChild(child);
       return 1;
-    } 
+    }
     else
     {
       return insertNode(child, parent->getRightChild());
@@ -140,7 +140,7 @@ int insertNode(Node* child, Node* parent)
     {
       parent->setLeftChild(child);
       return -1;
-    } 
+    }
     else
     {
       return insertNode(child, parent->getLeftChild());
@@ -152,7 +152,7 @@ int insertNode(Node* child, Node* parent)
     {
       parent->setLeftChild(child);
       return 0;
-    } 
+    }
     else
     {
       return insertNode(child, parent->getLeftChild());
