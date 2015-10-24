@@ -56,30 +56,42 @@ Node* deleteNode(Node* root, int data);
 
 Node* findMin(Node* node);
 
-int insertNode(Node* child, Node* root)
+int insertNode(Node* child, Node* parent)
 {
-  if (root->getValue() < child->getValue())
+  if (parent->getValue() < child->getValue())
   {
-    if (root->getRightChild() == NULL)
+    if (parent->getRightChild() == NULL)
     {
-      root->setRightChild(child);
+      parent->setRightChild(child);
       return 1;
     } 
     else
     {
-      return insertNode(child, root->getRightChild);
+      return insertNode(child, parent->getRightChild);
     }
   }
-  else if (root->getValue() < child->getValue())
+  else if (parent->getValue() < child->getValue())
   {
-    if (root->getLeftChild() == NULL)
+    if (parent->getLeftChild() == NULL)
     {
-      root->setRightChild(child);
+      parent->setRightChild(child);
       return -1;
     } 
     else
     {
-      return insertNode(child, root->getLeftChild);
+      return insertNode(child, parent->getLeftChild);
+    }
+  }
+  else
+  {
+    if (parent->getLeftChild() == NULL)
+    {
+      parent->setRightChild(child);
+      return 0;
+    } 
+    else
+    {
+      return insertNode(child, parent->getLeftChild);
     }
   }
 }

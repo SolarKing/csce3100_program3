@@ -116,3 +116,43 @@ Node* findMin(Node* node)
     return findMin(node->getLeftChild());
   }
 }
+
+int insertNode(Node* child, Node* parent)
+{
+  if (parent->getValue() < child->getValue())
+  {
+    if (parent->getRightChild() == NULL)
+    {
+      parent->setRightChild(child);
+      return 1;
+    } 
+    else
+    {
+      return insertNode(child, parent->getRightChild);
+    }
+  }
+  else if (parent->getValue() < child->getValue())
+  {
+    if (parent->getLeftChild() == NULL)
+    {
+      parent->setLeftChild(child);
+      return -1;
+    } 
+    else
+    {
+      return insertNode(child, parent->getLeftChild);
+    }
+  }
+  else
+  {
+    if (parent->getLeftChild() == NULL)
+    {
+      parent->setLeftChild(child);
+      return 0;
+    } 
+    else
+    {
+      return insertNode(child, parent->getLeftChild);
+    }
+  }
+}
