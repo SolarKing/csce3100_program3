@@ -54,46 +54,9 @@ Node* deleteNode(Node* root, int data);
  * 3) delete duplicate from right subtree
  */
 
-Node* findMin(Node* node);
+Node* findMin(Node*);
 
-int insertNode(Node* child, Node* parent)
-{
-  if (parent->getValue() < child->getValue())
-  {
-    if (parent->getRightChild() == NULL)
-    {
-      parent->setRightChild(child);
-      return 1;
-    } 
-    else
-    {
-      return insertNode(child, parent->getRightChild);
-    }
-  }
-  else if (parent->getValue() < child->getValue())
-  {
-    if (parent->getLeftChild() == NULL)
-    {
-      parent->setRightChild(child);
-      return -1;
-    } 
-    else
-    {
-      return insertNode(child, parent->getLeftChild);
-    }
-  }
-  else
-  {
-    if (parent->getLeftChild() == NULL)
-    {
-      parent->setRightChild(child);
-      return 0;
-    } 
-    else
-    {
-      return insertNode(child, parent->getLeftChild);
-    }
-  }
-}
+int insertNode(Node* , Node*);
+
 
 #endif

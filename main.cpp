@@ -23,11 +23,12 @@ int main(int argc, char const *argv[])
 
   Node *root = new Node(12);
 
-  int input = [5,7,17,3,7,13,20,1,9,14,18,8,11];
+  
+  int input[13] = {5,7,17,3,7,13,20,1,9,14,18,8,11};
 
-  for (int i = 0; - < input.length(); i++)
+  for (int i = 0; i < 13; i++)
   {
-  	
+  	insertNode(new Node(i), root);
   }
   
 

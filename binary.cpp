@@ -128,7 +128,7 @@ int insertNode(Node* child, Node* parent)
     } 
     else
     {
-      return insertNode(child, parent->getRightChild);
+      return insertNode(child, parent->getRightChild());
     }
   }
   else if (parent->getValue() < child->getValue())
@@ -140,7 +140,7 @@ int insertNode(Node* child, Node* parent)
     } 
     else
     {
-      return insertNode(child, parent->getLeftChild);
+      return insertNode(child, parent->getLeftChild());
     }
   }
   else
@@ -152,7 +152,7 @@ int insertNode(Node* child, Node* parent)
     } 
     else
     {
-      return insertNode(child, parent->getLeftChild);
+      return insertNode(child, parent->getLeftChild());
     }
   }
 }
