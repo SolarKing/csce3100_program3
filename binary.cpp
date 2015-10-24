@@ -7,8 +7,7 @@ Node::Node(int value)
   parentNode = NULL;
 }
 
-Node::Node(int value, Node *parent)
-{
+Node::Node(int value, Node *parent) {
   data = value;
   parentNode = parent;
 }
@@ -48,4 +47,9 @@ Node* Node::getRightChild()
 int Node::getValue()
 {
   return data;
+}
+
+void Node::setValue(int value)
+{
+  data = value;
 }
