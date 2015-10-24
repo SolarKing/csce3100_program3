@@ -55,7 +55,7 @@ void Node::setValue(int value)
   data = value;
 }
 
-Node* deleteNode(Node* root, int data)
+Node* deleteNode_A(Node* root, int data)
 {
   if (root == NULL)
   {
@@ -65,16 +65,19 @@ Node* deleteNode(Node* root, int data)
 
   else if (data < root->getValue())
   {
-    root->setLeftChild(deleteNode(root->getLeftChild(), data)); 
+    std::cout << "debug: setting left child" << std::endl;
+    root->setLeftChild(deleteNode_A(root->getLeftChild(), data)); 
   }
 
   else if (data > root->getValue())
   {
-    root->setRightChild(deleteNode(root->getRightChild(), data)); 
+    std::cout << "debug: setting right child" << std::endl;
+    root->setRightChild(deleteNode_A(root->getRightChild(), data)); 
   }
 
   else
   {
+    std::cout << "Entered 'else' statement" << std::endl;
     if (root->getLeftChild() == NULL && root->getRightChild() == NULL)
     {
       delete root;
@@ -99,7 +102,7 @@ Node* deleteNode(Node* root, int data)
     {
       Node *temp = findMin(root->getRightChild());
       root->setValue(temp->getValue());
-      root->setRightChild(deleteNode(root->getRightChild(), temp->getValue()));
+      root->setRightChild(deleteNode_A(root->getRightChild(), temp->getValue()));
     }
   }
   return root;
