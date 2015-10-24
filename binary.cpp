@@ -1,5 +1,6 @@
 #include "binary.h"
 #include <cstdlib>
+#include <iostream>
 
 Node::Node(int value)
 {
@@ -52,4 +53,66 @@ int Node::getValue()
 void Node::setValue(int value)
 {
   data = value;
+}
+
+Node* deleteNode(Node* root, int data)
+{
+  if (root == NULL)
+  {
+    std::cout << "debug: there was no child found..." << std::endl;
+    return root;
+  }
+
+  else if (data < root->getValue())
+  {
+    root->setLeftChild(deleteNode(root->getLeftChild(), data)); 
+  }
+
+  else if (data > root->getValue())
+  {
+    root->setRightChild(deleteNode(root->getRightChild(), data)); 
+  }
+
+  else
+  {
+    if (root->getLeftChild() == NULL && root->getRightChild() == NULL)
+    {
+      delete root;
+      root = NULL;
+    } 
+
+    else if (root->getLeftChild() == NULL)
+    {
+      Node *temp = root;
+      root = root->getRightChild();
+      delete temp;
+    }
+
+    else if (root->getRightChild() == NULL)
+    {
+      Node *temp = root;
+      root = root->getLeftChild();
+      delete temp;
+    }
+
+    else
+    {
+      Node *temp = findMin(root->getRightChild());
+      root->setValue(temp->getValue());
+      root->setRightChild(deleteNode(root->getRightChild(), temp->getValue()));
+    }
+  }
+  return root;
+}
+
+Node* findMin(Node* node)
+{
+  if (node->getLeftChild() == NULL)
+  {
+    return node;
+  }
+  else
+  {
+    return findMin(node->getLeftChild());
+  }
 }
