@@ -17,12 +17,13 @@
 
 #include <iostream>
 #include "binary.h"
+#include <ctime>
 
 void printTree(Node* node);
 
 int main(int argc, char const *argv[])
 {
-  std::cout << "Hello World" << std::endl;
+  std::clock_t start;
 
   Node *rootB = new Node(12);
 
@@ -37,9 +38,22 @@ int main(int argc, char const *argv[])
   std::cout << "\nBefore deletion:" << std::endl;
   printTree(rootB);
   std::cout << "\nDeleting..." << std::endl;
+
+  start=std::clock();
+
   deleteNode_B(rootB, 9);
+  deleteNode_B(rootB, 15);
+  deleteNode_B(rootB, 12);
+
+  std::clock_t end = std::clock() - start;
+
   std::cout << "\nAfter deletion:" << std::endl;
   printTree(rootB);
+
+  std::cout << "\n\nDeleting 9, 15, and 12 ran for ";
+  std::cout << (end) / (double)(CLOCKS_PER_SEC / 1000);
+  std::cout << " ms (" << end << " clicks)" << std::endl;
+
 
   return 0;
 }

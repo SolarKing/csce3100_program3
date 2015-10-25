@@ -1,0 +1,144 @@
+/**
+* Name: Charles Bido
+* Course: CSCE 3110
+* Assignment: Program 3 - Binary Search Trees
+* Due Date: October 24, 2015, 11:59 PM
+*/
+
+/**
+* Write a program to evaluate empirically the following strategies for
+* removing nodes with two children:
+* a. Replace with the largest node, X, in TL and recursively remove X.
+* b. Alternately replace with the largest node in TL and the smallest node
+* in TR, and recursively remove the appropriate node.
+* c. Replace with either the largest node in TL or the smallest node in
+* TR (recursively removing the appropriate node), making the choice randomly.
+*/
+
+
+Which strategy seems to give the most balance?
+
+Strategy C seems to give the most balance.
+
+Which takes the least CPU time to process the entire sequence?
+
+Strategy A and B nearly take the same amount of time and take less time
+than Strategy C (even combined).
+
+
+GENERATED FROM PROGRAM:
+
+> Running program...
+
+
+
+METHOD A
+
+Before deletion:
+Subtree 12 => (5, 15)
+Subtree 5 => (3, 7)
+Subtree 3 => (1, NULL)
+Subtree 1 => (NULL, NULL)
+Subtree 7 => (NULL, 9)
+Subtree 9 => (8, 11)
+Subtree 8 => (NULL, NULL)
+Subtree 11 => (NULL, NULL)
+Subtree 15 => (13, 17)
+Subtree 13 => (NULL, 14)
+Subtree 14 => (NULL, NULL)
+Subtree 17 => (NULL, 20)
+Subtree 20 => (18, NULL)
+Subtree 18 => (NULL, NULL)
+
+Deleting...
+
+After deletion:
+Subtree 13 => (5, 17)
+Subtree 5 => (3, 7)
+Subtree 3 => (1, NULL)
+Subtree 1 => (NULL, NULL)
+Subtree 7 => (NULL, 11)
+Subtree 11 => (8, NULL)
+Subtree 8 => (NULL, NULL)
+Subtree 17 => (14, 20)
+Subtree 14 => (NULL, NULL)
+Subtree 20 => (18, NULL)
+Subtree 18 => (NULL, NULL)
+
+
+Deleting 9, 15, and 12 ran for 0.002 ms (2 clicks)
+
+
+METHOD B
+
+Before deletion:
+Subtree 12 => (5, 15)
+Subtree 5 => (3, 7)
+Subtree 3 => (1, NULL)
+Subtree 1 => (NULL, NULL)
+Subtree 7 => (NULL, 9)
+Subtree 9 => (8, 11)
+Subtree 8 => (NULL, NULL)
+Subtree 11 => (NULL, NULL)
+Subtree 15 => (13, 17)
+Subtree 13 => (NULL, 14)
+Subtree 14 => (NULL, NULL)
+Subtree 17 => (NULL, 20)
+Subtree 20 => (18, NULL)
+Subtree 18 => (NULL, NULL)
+
+Deleting...
+
+After deletion:
+Subtree 11 => (5, 14)
+Subtree 5 => (3, 7)
+Subtree 3 => (1, NULL)
+Subtree 1 => (NULL, NULL)
+Subtree 7 => (NULL, 8)
+Subtree 8 => (NULL, NULL)
+Subtree 14 => (13, 17)
+Subtree 13 => (NULL, NULL)
+Subtree 17 => (NULL, 20)
+Subtree 20 => (18, NULL)
+Subtree 18 => (NULL, NULL)
+
+Deleting 9, 15, and 12 ran for 0.002 ms (2 clicks)
+
+
+METHOD C
+
+Before deletion:
+Subtree 12 => (5, 15)
+Subtree 5 => (3, 7)
+Subtree 3 => (1, NULL)
+Subtree 1 => (NULL, NULL)
+Subtree 7 => (NULL, 9)
+Subtree 9 => (8, 11)
+Subtree 8 => (NULL, NULL)
+Subtree 11 => (NULL, NULL)
+Subtree 15 => (13, 17)
+Subtree 13 => (NULL, 14)
+Subtree 14 => (NULL, NULL)
+Subtree 17 => (NULL, 20)
+Subtree 20 => (18, NULL)
+Subtree 18 => (NULL, NULL)
+
+Deleting...
+
+After deletion:
+Subtree 13 => (5, 17)
+Subtree 5 => (3, 7)
+Subtree 3 => (1, NULL)
+Subtree 1 => (NULL, NULL)
+Subtree 7 => (NULL, 11)
+Subtree 11 => (8, NULL)
+Subtree 8 => (NULL, NULL)
+Subtree 17 => (14, 20)
+Subtree 14 => (NULL, NULL)
+Subtree 20 => (18, NULL)
+Subtree 18 => (NULL, NULL)
+
+Deleting 9, 15, and 12 ran for 0.006 ms (6 clicks)
+
+> Finished run.
+

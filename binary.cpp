@@ -231,7 +231,7 @@ Node* deleteNode_C(Node* root, int data)
     {
       srand(time(NULL));
       int random = rand() % 10;
-      std::cout << "Randeom = " << random << std::endl;
+      // std::cout << "Randeom = " << random << std::endl;
       if (random < 5) { // do MIN
         Node *temp = findMin(root->getRightChild());
         root->setValue(temp->getValue());

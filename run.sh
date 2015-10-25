@@ -1,6 +1,8 @@
-echo "### Running program..."
+echo "> Running program..."
 echo ""
-./program3
+./program3A
+./program3B
+./program3C
 echo ""
-echo "### Finished run."
+echo "> Finished run."
 echo ""
