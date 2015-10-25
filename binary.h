@@ -35,6 +35,8 @@ public:
 // edit node
 
 Node* deleteNode_A(Node* root, int data);
+Node* deleteNode_B(Node* root, int data);
+Node* deleteNode_C(Node* root, int data);
 /**
  * To delete a (leaf) node from bst
  * 1) remove refeference of node from its parent so it will be detatched
@@ -55,6 +57,7 @@ Node* deleteNode_A(Node* root, int data);
  */
 
 Node* findMin(Node*);
+Node* findMax(Node*);
 
 int insertNode(Node* , Node*);
 

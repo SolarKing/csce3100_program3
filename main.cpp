@@ -15,6 +15,20 @@
 * TR (recursively removing the appropriate node), making the choice randomly.
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <iostream>
 #include "binary.h"
 
@@ -24,49 +38,66 @@ int main(int argc, char const *argv[])
 {
   std::cout << "Hello World" << std::endl;
 
-  Node *root = new Node(12);
+  Node *rootA = new Node(12);
+  Node *rootB = new Node(12);
+  Node *rootC = new Node(12);
 
-
-  int input[14] = {5,7,15,17,3,7,13,20,1,9,14,18,8,11};
-
-  for (int i = 0; i < 14; i++)
+  // populating the binary tree
+  int input[13] = {5,15,3,7,13,17, 20,1,9,14,18,8,11};
+  for (int i = 0; i < 13; i++)
   {
-    insertNode(new Node(input[i]), root);
+    insertNode(new Node(input[i]), rootA);
+    insertNode(new Node(input[i]), rootB);
+    insertNode(new Node(input[i]), rootC);
   }
 
-  std::cout << root->getValue() << std::endl;
-
-  if (root->getLeftChild() == NULL) {
-    std::cout << "Left Child is NULL" << std::endl;
-  }
-  else
-  {
-    std::cout << "Left Child is: " << root->getLeftChild()->getValue() << std::endl;
-  }
-
-  if (root->getRightChild() == NULL) {
-    std::cout << "Right Child is NULL" << std::endl;
-  }
-  else
-  {
-    std::cout << "Right Child is: " << root->getRightChild()->getValue() << std::endl;
-  }
-
-  printTree(root);
 
 
-  Node *temp = deleteNode_A(root, 15);
-  std::cout << "Deleted node with value of " << temp->getValue() << std::endl;
+  std::cout << "\n\nMETHOD A" << std::endl;
+  std::cout << "\nBefore deletion:" << std::endl;
+  printTree(rootA);
+  std::cout << "\nDeleting..." << std::endl;
+  deleteNode_A(rootA, 9);
+  std::cout << "\nAfter deletion:" << std::endl;
+  printTree(rootA);
 
-  printTree(root);
+  std::cout << "\n\nMETHOD B" << std::endl;
+  std::cout << "\nBefore deletion:" << std::endl;
+  printTree(rootB);
+  std::cout << "\nDeleting..." << std::endl;
+  deleteNode_B(rootB, 9);
+  std::cout << "\nAfter deletion:" << std::endl;
+  printTree(rootB);
 
+  std::cout << "\n\nMETHOD C" << std::endl;
+  std::cout << "\nCefore deletion:" << std::endl;
+  printTree(rootC);
+  std::cout << "\nDeleting..." << std::endl;
+  deleteNode_C(rootC, 9);
+  std::cout << "\nAfter deletion:" << std::endl;
+  printTree(rootC);
 
   return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void printTree(Node* node)
 {
-  std::cout << "Parent value is: " << node->getValue();
+  std::cout << "Subtree " << node->getValue() << " => ";
   if (node->getLeftChild() == NULL)
   {
     std::cout << "(NULL, ";
