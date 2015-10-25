@@ -24,26 +24,14 @@ int main(int argc, char const *argv[])
 {
   std::cout << "Hello World" << std::endl;
 
-  Node *rootA = new Node(12);
   Node *rootB = new Node(12);
-  Node *rootC = new Node(12);
 
   // populating the binary tree
   int input[13] = {5,15,3,7,13,17, 20,1,9,14,18,8,11};
   for (int i = 0; i < 13; i++)
   {
-    insertNode(new Node(input[i]), rootA);
     insertNode(new Node(input[i]), rootB);
-    insertNode(new Node(input[i]), rootC);
   }
-
-  std::cout << "\n\nMETHOD A" << std::endl;
-  std::cout << "\nBefore deletion:" << std::endl;
-  printTree(rootA);
-  std::cout << "\nDeleting..." << std::endl;
-  deleteNode_A(rootA, 9);
-  std::cout << "\nAfter deletion:" << std::endl;
-  printTree(rootA);
 
   std::cout << "\n\nMETHOD B" << std::endl;
   std::cout << "\nBefore deletion:" << std::endl;
@@ -52,14 +40,6 @@ int main(int argc, char const *argv[])
   deleteNode_B(rootB, 9);
   std::cout << "\nAfter deletion:" << std::endl;
   printTree(rootB);
-
-  std::cout << "\n\nMETHOD C" << std::endl;
-  std::cout << "\nCefore deletion:" << std::endl;
-  printTree(rootC);
-  std::cout << "\nDeleting..." << std::endl;
-  deleteNode_C(rootC, 9);
-  std::cout << "\nAfter deletion:" << std::endl;
-  printTree(rootC);
 
   return 0;
 }

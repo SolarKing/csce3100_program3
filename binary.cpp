@@ -25,7 +25,6 @@ void Node::setLeftChild(Node *left)
   {
     leftChild->parentNode = this;
   }
-
 }
 
 void Node::setRightChild(Node *right)
